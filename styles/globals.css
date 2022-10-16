@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input,
+button,
+select,
+textarea {
+  outline: none;
+}
+
+.temp-spin {
+  animation: temp-spin 1s linear infinite;
+}
+
+.full-page-spin {
+  animation: full-page-spin 1s linear infinite;
+}
+
+@keyframes temp-spin {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes full-page-spin {
+  from {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
+
+.select-floating-options-on-bottom {
+  top: calc(100% + 5px)
+}
+
+.select-floating-options-on-top {
+  bottom: calc(100% + 5px)
+}
+
+@layer components {
+  .navbar-fix {
+    @apply fixed top-0 left-0 right-0 z-[9999]
+  }
+  button {
+    @apply rounded-sm transition duration-100 border-[1px] border-transparent text-white cursor-pointer px-3 py-1 font-medium
+  }
+  button:disabled {
+    @apply cursor-not-allowed
+  }
+  button.danger {
+    @apply bg-red-500 hover:bg-red-500/70
+  }
+  button.primary {
+    @apply hover:bg-blue-500 bg-blue-500/90
+  }
+  button.success {
+    @apply bg-green-500 hover:bg-green-500/70
+  }
+  button.dark {
+    @apply bg-neutral-500 hover:bg-neutral-500/70
+  }
+  button.btn-light {
+    @apply bg-gray-100 hover:bg-gray-100/70
+  }
+  button.btn-secondary {
+    @apply bg-gray-400 hover:bg-gray-400/70
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-200
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400/60 transition-opacity duration-100 hover:bg-gray-400 rounded-md
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.sidebar-height {
+  height: calc(100% - 56px);
+}
+
+.border-color-auto {
+  --theme: #000000;
+}
+
+.border-color-auto:focus {
+  border-color: var(--theme);
+}
